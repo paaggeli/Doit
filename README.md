@@ -159,6 +159,8 @@ This project demonstrates several Rust concepts:
 
 The code is heavily commented to help beginners understand each concept.
 
+**📖 Detailed Tutorial**: For a comprehensive guide building this project from scratch, check out my blog post:
+[Building Doit: A Command-Line Todo Application in Rust](https://opensourceodyssey.com/building-doit-a-simple-todo-app-in-rust/)
 ## Contributing
 
 Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
