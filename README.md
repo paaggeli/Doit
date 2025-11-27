@@ -59,13 +59,13 @@ cargo install --path .
 
 **Add a new task:**
 ```bash
-todo add "Buy groceries"
-todo add "Finish Rust tutorial"
+doit add "Buy groceries"
+doit add "Finish Rust tutorial"
 ```
 
 **List all tasks:**
 ```bash
-todo list
+doit list
 ```
 
 Output example:
@@ -77,7 +77,7 @@ Output example:
 
 **Mark a task as done:**
 ```bash
-todo done 1
+doit done 1
 ```
 
 Output:
@@ -87,7 +87,7 @@ Output:
 
 **Remove a task:**
 ```bash
-todo remove 2
+doit remove 2
 ```
 
 Output:
@@ -97,12 +97,12 @@ Output:
 
 **Get help:**
 ```bash
-todo --help
+doit --help
 ```
 
 **Check version:**
 ```bash
-todo --version
+doit --version
 ```
 
 ## How It Works
@@ -131,7 +131,7 @@ Example `tasks.json`:
 ## Project Structure
 
 ```
-todo-cli/
+doit/
 ├── src/
 │   └── main.rs          # Main application code
 ├── Cargo.toml           # Project dependencies
