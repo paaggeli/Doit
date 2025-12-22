@@ -2,6 +2,8 @@
 
 A simple, beginner-friendly command-line todo list application written in Rust. Perfect for learning Rust concepts like ownership, borrowing, serialization, and CLI argument parsing.
 
+Doit also includes an AI feature powered by Ollama, which allows you to ask questions about your tasks or chat with an AI model directly from the CLI.
+
 ## Features
 
 - ✅ Add new tasks
@@ -9,6 +11,7 @@ A simple, beginner-friendly command-line todo list application written in Rust. 
 - ✔️ Mark tasks as completed
 - 🗑️ Remove tasks
 - 💾 Persistent storage (saves to JSON file)
+- 🤖 Ask questions about your tasks using AI (via Ollama)
 
 ## Prerequisites
 
@@ -28,6 +31,20 @@ Verify installation:
 ```bash
 rustc --version
 cargo --version
+```
+
+### Installing Ollama (for AI features)
+To use the AI functionality, you need to have Ollama running locally.
+
+Install [Ollama](https://ollama.com/)
+
+Then pull a model 
+```bash
+ollama pull llama3.2
+```
+Make sure Ollama is running on:
+```bash
+http://localhost:11434
 ```
 
 ## Installation
@@ -61,11 +78,16 @@ cargo install --path .
 ```bash
 doit add "Buy groceries"
 doit add "Finish Rust tutorial"
+# If you are running the app during development
+cargo run -- add "Buy groceries"
+cargo run -- add "Finish Rust tutorial"
 ```
 
 **List all tasks:**
 ```bash
 doit list
+# If you are running the app during development
+cargo run -- list
 ```
 
 Output example:
@@ -78,6 +100,8 @@ Output example:
 **Mark a task as done:**
 ```bash
 doit done 1
+# If you are running the app during development
+cargo run -- done 1
 ```
 
 Output:
@@ -88,6 +112,8 @@ Output:
 **Remove a task:**
 ```bash
 doit remove 2
+# If you are running the app during development
+cargo run -- remove 2
 ```
 
 Output:
@@ -95,14 +121,42 @@ Output:
 🗑️  Removed task #2
 ```
 
+**AI Commands**
+
+Ask a one-shot question (no conversation memory):
+```bash
+doit ask "What should I work on next?"
+# If you are running the app during development
+cargo run -- ask "What should I work on next?"
+```
+
+Start a conversational chat session:
+```bash
+doit ask "Help me prioritize my tasks" --chat
+# or
+doit ask "Help me prioritize my tasks" -c
+# If you are running the app during development
+cargo run -- ask "Help me prioritize my tasks" --chat
+# or
+cargo run -- ask "Help me prioritize my tasks" -c
+```
+
+In chat mode, you can keep asking questions and the AI will remember the previous messages until you exit the session.
+
+Type **exit** or **quit** at any time to leave the chat session.
+
 **Get help:**
 ```bash
 doit --help
+# If you are running the app during development
+cargo run -- --help
 ```
 
 **Check version:**
 ```bash
 doit --version
+# If you are running the app during development
+cargo run -- --version
 ```
 
 ## How It Works
@@ -144,23 +198,31 @@ doit/
 ## Dependencies
 
 This project uses the following crates:
-- **clap** (v4.0+) - Command-line argument parsing
-- **serde** (v1.0+) - Serialization/deserialization framework
-- **serde_json** (v1.0+) - JSON support for serde
+- **clap** - Command-line argument parsing
+- **serde** - Serialization/deserialization framework
+- **serde_json** - JSON support for serde
+- **reqwest** – HTTP client
+- **tokio** – Async runtime
+- **futures-util** – Stream handling
 
 ## Learning Resources
 
 This project demonstrates several Rust concepts:
-- **Ownership and Borrowing**: See how references (`&`) are used throughout
-- **Pattern Matching**: Check the `match` statement in `main()`
-- **Error Handling**: See `Result`, `Option`, `unwrap()`, and `unwrap_or()`
+- **Ownership and borrowing**
 - **Traits**: `Serialize`, `Deserialize`, `Parser`, `Subcommand`
 - **Iterators**: `iter()`, `iter_mut()`, `map()`, `max()`, `find()`, `retain()`
+- **Error handling with** `Result`, `Option`, `unwrap()`, `unwrap_or()`, **and** `?`
+- **Pattern matching with** `match`
+- **Async / await with** `Tokio`
+- **Streaming HTTP responses**
+- **NDJSON parsing**
+- **Struct-based API design**
 
 The code is heavily commented to help beginners understand each concept.
 
-**📖 Detailed Tutorial**: For a comprehensive guide building this project from scratch, check out my blog post:
-[Building Doit: A Command-Line Todo Application in Rust](https://opensourceodyssey.com/building-doit-a-simple-todo-app-in-rust/)
+**📖 Detailed Tutorial**: For a comprehensive, step-by-step guide to building this project from scratch, check out my blog series:
+- [Building Doit: A Command-Line Todo Application in Rust](https://opensourceodyssey.com/building-doit-a-simple-todo-app-in-rust/)
+- [Building Doit Part 2: Adding an Intelligent Assistant (AI) to Your Rust CLI App](https://opensourceodyssey.com/building-doit-part-2-adding-an-intelligent-assistant-ai-to-your-rust-cli-app/)
 ## Contributing
 
 Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
