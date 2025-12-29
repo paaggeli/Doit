@@ -187,7 +187,10 @@ Example `tasks.json`:
 ```
 doit/
 ├── src/
-│   └── main.rs          # Main application code
+│   ├── main.rs          # Entry point, CLI parsing, command routing
+│   ├── models.rs        # All data structures (Task, API request/response types)
+│   ├── task_manager.rs  # Task operations (load, save, add, remove, etc.)
+│   └── ai.rs            # All AI-related functionality (ask_ai, chat, streaming)
 ├── Cargo.toml           # Project dependencies
 ├── tasks.json           # Task storage (created automatically)
 ├── README.md            # This file
@@ -216,13 +219,13 @@ This project demonstrates several Rust concepts:
 - **Async / await with** `Tokio`
 - **Streaming HTTP responses**
 - **NDJSON parsing**
-- **Struct-based API design**
 
 The code is heavily commented to help beginners understand each concept.
 
 **📖 Detailed Tutorial**: For a comprehensive, step-by-step guide to building this project from scratch, check out my blog series:
 - [Building Doit: A Command-Line Todo Application in Rust](https://opensourceodyssey.com/building-doit-a-simple-todo-app-in-rust/)
 - [Building Doit Part 2: Adding an Intelligent Assistant (AI) to Your Rust CLI App](https://opensourceodyssey.com/building-doit-part-2-adding-an-intelligent-assistant-ai-to-your-rust-cli-app/)
+- [Building Doit Part 3: Restructuring the Project with Rust Modules](https://opensourceodyssey.com/building-doit-part-3-restructuring-the-project-with-rust-modules/)
 ## Contributing
 
 Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
@@ -242,11 +245,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - GitHub: [@paaggeli](https://github.com/paaggeli)
 
-## Acknowledgments
-
-- Built with [Rust](https://www.rust-lang.org/)
-- CLI parsing by [clap](https://github.com/clap-rs/clap)
-- JSON handling by [serde](https://github.com/serde-rs/serde)
 ---
 
 **Happy coding! 🦀**
