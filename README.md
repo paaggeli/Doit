@@ -226,6 +226,7 @@ The code is heavily commented to help beginners understand each concept.
 - [Building Doit: A Command-Line Todo Application in Rust](https://opensourceodyssey.com/building-doit-a-simple-todo-app-in-rust/)
 - [Building Doit Part 2: Adding an Intelligent Assistant (AI) to Your Rust CLI App](https://opensourceodyssey.com/building-doit-part-2-adding-an-intelligent-assistant-ai-to-your-rust-cli-app/)
 - [Building Doit Part 3: Restructuring the Project with Rust Modules](https://opensourceodyssey.com/building-doit-part-3-restructuring-the-project-with-rust-modules/)
+- [Building Doit Part 4: Cleaning Up the AI Code](https://opensourceodyssey.com/building-doit-part-4-cleaning-up-the-ai-code/)
 ## Contributing
 
 Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
